@@ -5,15 +5,17 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import sefaz.pi.gov.br.cadastroDeTarefa.modelo.StatusTarefa;
 import sefaz.pi.gov.br.cadastroDeTarefa.modelo.Tarefa;
 
 public class TarefaForm {
 
 	@NotNull @NotEmpty @Length(min = 5)
 	private String titulo;
-	
 	@NotNull @NotEmpty @Length(min = 10)
 	private String descricao;
+	
+	private StatusTarefa statusTarefa;
 
 	public String getTitulo() {
 		return titulo;
@@ -33,6 +35,14 @@ public class TarefaForm {
 
 	public Tarefa converter() {
 		return new Tarefa(titulo, descricao);
+	}
+
+	public StatusTarefa getStatusTarefa() {
+		return statusTarefa;
+	}
+
+	public void setStatusTarefa(StatusTarefa statusTarefa) {
+		this.statusTarefa = statusTarefa;
 	}
 	
 	
